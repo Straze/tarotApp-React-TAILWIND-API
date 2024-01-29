@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-    --primary: rgb(5, 7, 109);
-    --secondary: rgb(36, 10, 151);
+    --primary: rgb(255, 255, 255);
+    --secondary: rgb(235, 235, 235);
 }
 
 /* Firefox */
