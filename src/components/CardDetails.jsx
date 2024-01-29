@@ -1,54 +1,59 @@
-import GenerateCards from './GenerateCards';
 import React, { useState } from 'react';
 import CardPhotos from './CardPhotos';
 
 export default function CardDetails({ card }) {
 
-        
-   
-  const [isRotated, setIsRotated] = useState(false);
+        const [isRotated, setIsRotated] = useState(false);
+        // card rotation on click 
+        const handleClick = () => {
+             setIsRotated(!isRotated);
+        };
 
-  const handleClick = () => {
-    setIsRotated(!isRotated);
-  };
+    return (
 
-
-        return (
-
-        <div className='container mb-10 flex flex-row justify-center items-center '>
+<div className='container mb-10 flex flex-row justify-center items-center '>
             
-            <div id='divCard' className='container flex flex-col justify-center items-center w-6/12  '>
-                <h1 className='mb-4 text-lg  text-white'>Click the card to reverse it</h1>
-             <img id="Cardel"  
-             className={`h-[450px]  w-[250px]  rounded 
-         transition duration-500 delay-50 hover:-translate-y-1 
-         hover:scale-105 shadow-lg hover:shadow-xl  ${isRotated ? 'rotate-180' : ''}`} onClick={handleClick}
-         src={ CardPhotos[card.name] || ""}
-        alt={`Pick a card from the list`}/>
-         </div>
-        <ul className='  w-full transition flex flex-col container  duration-300 ease-in-out delay-100 
-            p-4 rounded bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86] hover:bg-[#ffffffa8] w-100 backdrop-blur-lg  
-            shadow-lg hover:shadow-lg text-balance'>
-                
-            <li className=''>
-                
-        <strong className='text-blue-800  justify-center flex '>{card.name} 
-            <span className='text-gray-600'>[Type: {card.type}][Value: {card.value}]</span> 
-            <br></br> 
-        </strong>  
-        <span className=' text-gray-800 text-balance px-5'>
-            <strong className={` justify-center flex border-b-[1px] border-t-[1px]
-          border-gray-800 mt-2 mb-2 ${isRotated ? 'text-red-800' : 'text-green-800'}`}> Meaning  <br></br></strong> {isRotated ? card.meaning_rev : card.meaning_up}
-        </span>  
-        <span className=' text-gray-800 text-balance px-5'>
-            <strong className='text-gray-800  justify-center flex border-b-[1px]
-            border-t-[1px] border-gray-800 mt-2 mb-2'>Description <br></br></strong> 
-            <span className='line-clamp-[15] hover:line-clamp-[30] transition-all duration-500' >{card.desc} </span>
-        </span> 
-    </li>
-</ul>
-         
-        </div>
+    <ul className='w-full flex flex-col container p-4 rounded-lg
+                   text-balance transition-all duration-300 ease-in-out  '>    
+        <li className='mt-4 border-2 border-violet-500 rounded-lg shadow-lg p-2'>
+            {/* card title */}
+            <strong className='justify-center flex text-blue-800'>{card.name}  </strong>  
+            <span className='justify-center flex flex-row text-center text-gray-600'>[Type: {card.type}][Value: {card.value}]</span> 
+            {/* card meaning */}
+            <span className=' text-gray-800 text-balance px-6'>
+            <strong className={`justify-center flex  mb-2 p-[4px]
+                                border-b-[1px] border-t-[1px] border-gray-800  
+                                ${isRotated ? 'text-red-800' : 'text-green-800'}`}> Meaning</strong> 
+            <span className='justify-center flex flex-row text-center text-gray-600 text-sm mb-1 
+                             md:hidden' 
+                   onClick={handleClick}>Click here for the reverse meaning</span>
+            <span className='text-balance px-2'>
+                  {isRotated ? card.meaning_rev : card.meaning_up}</span>
+            </span>  
+            {/* card description */}
+            <span className='text-gray-800 text-balance px-5'>
+            {/* card img */}
+            <h1  className='text-gray-400 hover:text-gray-600 text-right mr-3  text-sm transition-colors duration-500
+                             sm:hidden
+                             md:mt-8 md:block'
+                             >Click the card to reverse it</h1>
+            <img className={`h-[450px] w-[250px] float-right transition duration-500 delay-50 
+                             sm:hidden
+                             md:h-[350px] md:w-[200px] md:ml-1 md:block 
+                            
+                             ${isRotated ? 'rotate-180' : ''}`} onClick={handleClick}
+                             src={ CardPhotos[card.name] || ""}
+                             alt={`Pick a card from the list`}/> 
+            {/* description */}
+            <strong className='text-gray-800  justify-center flex mt-2 mb-2 p-[4px]
+                                border-b-[1px] border-t-[1px] border-gray-800 '>
+                                Description 
+            </strong> 
+            <span className='px-2' >{card.desc} </span>
+            </span> 
+        </li>
+    </ul>
+</div>
 
         )
 

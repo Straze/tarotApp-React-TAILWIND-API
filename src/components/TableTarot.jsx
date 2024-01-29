@@ -1,8 +1,8 @@
-import GenerateCards from './GenerateCards';
 import React, { useState } from 'react';
 
-function getPredictionTable(index) {
 
+// switch for the different types of predictions
+function getPredictionTable(index) {
   switch (index % 10) {
     case 0:
       return 'Your condition at present:';
@@ -25,33 +25,33 @@ function getPredictionTable(index) {
     case 9: 
      return 'The outcome:';
     default:
-      return ''; // Handle additional cases if needed
+      return '';
   }
 }
 
-export default function TableTarot({cardsDeck, setCardObtained}) {
+export default function TableTarot({cardsDeck, setCardObtained, finalState}) {
 
 
-
-        return (
-
-        <div className='container mb-10'>
-    
+    return (
+       
+  <div className='container mb-10'>
+    {/* load the table with all the extracted cards */}
     {cardsDeck.map((card, index) => (
         <div key={card.name}>
-         <ul className='container w-9/12'>
-            <li className='transition duration-300 ease-in-out delay-100 
-            px-2 py-2 mt-5 ml-2 mr-2 rounded bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86] hover:bg-[#ffffff77] w-100 backdrop-blur-lg hover:-translate-y-1 
-            hover:scale-101 
-            shadow-md hover:shadow-lg text-balance'>
+          <ul className=' '>
+            <li className='transition duration-300 ease-in-out delay-100 px-2 py-2 mt-5 ml-2 mr-2 rounded shadow-md          
+                           hover:shadow-lg hover:-translate-y-1 hover:scale-101 hover:bg-[#ffffff77]
+                           bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86]'>
               <span className=''>{getPredictionTable(index)} </span>
-            <strong className='text-blue-500'>{card.name} <br></br> </strong>  
-            <span className=' text-gray-800 text-balance px-5'>{Math.random() < 0.5 ? card.meaning_rev : card.meaning_up}</span>  </li>
+              <strong className='text-blue-500'>{card.name} <br></br> </strong>  
+              <span className={`${finalState[index] ? 'text-red-600' : 'text-green-600'} text-balance px-5`}>
+                            {finalState[index] ? card.meaning_rev : card.meaning_up}
+              </span>  
+            </li>
          </ul>
-       
         </div>
          ))}
-        </div>
+  </div>
 
         )
 
