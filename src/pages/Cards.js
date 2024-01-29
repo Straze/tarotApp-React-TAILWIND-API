@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Search from '../components/Search';
 import CardPhotos from '../components/CardPhotos';
 import CardDetails from '../components/CardDetails';
@@ -12,33 +12,43 @@ export default function Cards() {
         setCardClicked(card)
     }
   return (
-    <>
-    <div className='w-screen min-h-[800px] container'>
-     <Search cardSearched ={cardSearched} setCardSearched ={setCardSearched}  />
-    <div className='container flex flex-row'>
-     <div className='container w-9/12 overflow-auto scroll-auto justify-items-center  
-     lg:min-w-[700px]  sm:min-w-[300px] max-h-[700px]
-    bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86] w-100 backdrop-blur-lg
-    grid grid-cols-5 sm:grid-cols-5   
-    shadow-lg px-4 py-4 rounded-lg text-balance  '>
-     {cardSearched.map((card) => (
-      <div key={card.name}>
-         <img onClick={() => displayDetails(card)} className=' h-[250px] w-[150px] mt-2 ml-2
-         transition duration-500 delay-50 rounded px-[1px] hover:-translate-y-1 
-         hover:scale-105 hover:shadow-xl' 
-         src={ CardPhotos[card.name] || ""}
-        alt={`Photo of ${card.name}`}/>
-        
-        </div>
-        
-      ))}
+<>
+<div className='m-auto bg-white rounded-lg shadow-lg 
+                sm:max-w-[400px] 
+                md:max-w-[700px] 
+                lg:min-w-[50%] mt-6'>
 
-     
-      
-     </div>
-      <CardDetails card={cardClicked} />
-      </div>
+
+  <div className='container flex flex-row rounded-lg 
+                  sm:flex-col sm:max-w-[400px]
+                  md:max-w-[700px]'>
+        
+    <div className='px-8 sm:px-4 md:px-8 '><Search cardSearched ={cardSearched} setCardSearched ={setCardSearched}  /></div>
+  
+    <div className='container grid w-9/12 border-b-2 border-t-2  border-violet-500 overflow-auto px-4 py-2 max-h-[640px] 
+                    xsm:grid-cols-1 xsm:max-w-[350px]
+                    sm:max-h-[350px] sm:px-2 sm:w-11/12 sm:grid-cols-2 sm:max-w-[380px]
+                    md:flex-row md:grid-cols-4 md:max-w-[640px]
+                    xl:grid-cols-4 '>
+
+      {cardSearched.map((card) => (
+        <div key={card.name}>
+          <img onClick={() => displayDetails(card)} 
+               className='h-[250px] w-[150px] mt-2 ml-2 transition duration-500 delay-50 rounded 
+                          hover:-translate-y-1 hover:scale-105 hover:shadow-xl' 
+               src={ CardPhotos[card.name] || ""}
+               alt={`Photo of ${card.name}`}
+         />
+        </div>   
+      ))}
+    </div>
+
+    <CardDetails card={cardClicked} />
+
   </div>
-  </>
+
+
+</div>
+</>
   )
 }
