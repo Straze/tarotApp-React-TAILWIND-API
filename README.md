@@ -1,7 +1,7 @@
 #Get your reading for free at https://tarotelini.netlify.app (always up to date)
-The tarot reading is done by the book
-Cards are dealt face down and can be revealed, they are either upside or reversed and each position is asigned a place on the meaning table 
-Works on all devices
+##The tarot reading is done by the book
+###Cards are dealt face down and can be revealed, they are either upside or reversed and each position is asigned a place on the meaning table 
+###Works on all devices
 
 Most information and card pictures were borrowed from: https://www.tarotcardmeanings.net/
 API used: https://github.com/ekelen/tarot-api
