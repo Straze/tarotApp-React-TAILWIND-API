@@ -1,10 +1,3 @@
-import Navbar from "../components/Navbar"
-import PlayingField from "../components/PlayingField"
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-} from "react-router-dom";
 
 
 export default function Home() {
