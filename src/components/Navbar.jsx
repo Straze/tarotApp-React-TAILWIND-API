@@ -29,7 +29,6 @@ export default function Navbar() {
             onClick={() => setIsOpen((prev) =>!prev)}> 
             <span className={`${isOpen ? 'text-white' : 'text-black'}`}>< IoMdMenu /> </span>
     </button>
-   {/* mobile nav */}
    {isOpen && (
        <div className="relative z-50 py-4 flex  flex-col  duration-300 animate-fade  bg-blue-600/50 backdrop-blur-md  text-left" >
     <div className="absolute w-full bg-blue-600   p-2">

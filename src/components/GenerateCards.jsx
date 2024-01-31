@@ -2,7 +2,7 @@ import { useEffect, useState} from "react"
 
 const URL = "https://tarotapi.dev/api/v1"
 
-export default function GenerateCards({ setCardObtained, finalState, setFinalState }) {
+export default function GenerateCards({ setCardObtained, setFinalState, setRevealedCards }) {
 
       // query type for api
       const [query, setQuery] = useState("")
@@ -11,11 +11,11 @@ export default function GenerateCards({ setCardObtained, finalState, setFinalSta
       // array with the state of cards(reversed or not)
       const [cardState, setCardState] = useState([true, true, true, true, true, true, true, true, true, true])
       let counter = 0;
-      // decided wether the card pulled is reversed or not
+      
+      // decide wether the card pulled is reversed or not
       const handleCardState = () => {
         cardState.forEach(state => {
             const revUp = Math.floor(Math.random() * 10)
-            console.log(revUp)
               if (revUp > 5) {
               const tmpArray = cardState
               counter++
@@ -29,7 +29,6 @@ export default function GenerateCards({ setCardObtained, finalState, setFinalSta
               setCardState(tmpArray)
               }
           });
-           console.log(cardState)
            setFinalState(cardState)
         }
 
@@ -47,9 +46,11 @@ export default function GenerateCards({ setCardObtained, finalState, setFinalSta
 
       // get the cards 
       // reset buttonPressed so we can just click it again if we want to deal a new hand
+      // unreveal cards when generating a new hand
       if(buttonPressed) {
         fetchCards();
         setButtonPressed(false);
+        setRevealedCards(Array(10).fill(false));
       }
     }, [query, buttonPressed, setCardObtained]);
 
@@ -57,11 +58,11 @@ export default function GenerateCards({ setCardObtained, finalState, setFinalSta
       const resetCards = () => {
       setCardObtained([]); 
     };
+    
 
-    return (
+  return (
         <>
 <div className="container w-full mb-2 flex flex-row gap-3">
-      {/* Get Reading button */}
     <button value={query} 
             onClick={(e)=> {
               setButtonPressed(true);
@@ -74,7 +75,6 @@ export default function GenerateCards({ setCardObtained, finalState, setFinalSta
             text-gray-800 bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86]
             "> Get reading 
     </button>
-      {/* Reset cards button */}
     <button onClick={resetCards}
              className="shadow-md rounded-lg px-2 py-2 transition ease-in-out delay-100 duration-200 backdrop-blur-lg 
             hover:-translate-y-1 hover:scale-105 hover:bg-gray-300   

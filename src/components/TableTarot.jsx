@@ -29,13 +29,12 @@ function getPredictionTable(index) {
   }
 }
 
-export default function TableTarot({cardsDeck, setCardObtained, finalState}) {
+export default function TableTarot({cardsDeck, finalState, revealedCards}) {
 
 
     return (
        
   <div className='container mb-10'>
-    {/* load the table with all the extracted cards */}
     {cardsDeck.map((card, index) => (
         <div key={card.name}>
           <ul className=' '>
@@ -44,9 +43,9 @@ export default function TableTarot({cardsDeck, setCardObtained, finalState}) {
                            bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86]'>
               <span className=''>{getPredictionTable(index)} </span>
               <strong className='text-blue-500'>{card.name} <br></br> </strong>  
-              <span className={`${finalState[index] ? 'text-red-600' : 'text-green-600'} text-balance px-5`}>
+              {revealedCards[index] ?  <span className={`${finalState[index] ? 'text-red-600' : 'text-green-600'} text-balance px-5`}>
                             {finalState[index] ? card.meaning_rev : card.meaning_up}
-              </span>  
+              </span> : <span className='text-gray-600'>Reveal your card first!</span>}
             </li>
          </ul>
         </div>

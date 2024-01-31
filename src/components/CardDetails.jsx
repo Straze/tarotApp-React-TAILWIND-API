@@ -16,10 +16,8 @@ export default function CardDetails({ card }) {
     <ul className='w-full flex flex-col container p-4 rounded-lg
                    text-balance transition-all duration-300 ease-in-out  '>    
         <li className='mt-4 border-2 border-violet-500 rounded-lg shadow-lg p-2'>
-            {/* card title */}
             <strong className='justify-center flex text-blue-800'>{card.name}  </strong>  
             <span className='justify-center flex flex-row text-center text-gray-600'>[Type: {card.type}][Value: {card.value}]</span> 
-            {/* card meaning */}
             <span className=' text-gray-800 text-balance px-6'>
             <strong className={`justify-center flex  mb-2 p-[4px]
                                 border-b-[1px] border-t-[1px] border-gray-800  
@@ -30,9 +28,7 @@ export default function CardDetails({ card }) {
             <span className='text-balance px-2'>
                   {isRotated ? card.meaning_rev : card.meaning_up}</span>
             </span>  
-            {/* card description */}
             <span className='text-gray-800 text-balance px-5'>
-            {/* card img */}
             <h1  className='text-gray-400 hover:text-gray-600 text-right mr-3  text-sm transition-colors duration-500
                              sm:hidden
                              md:mt-8 md:block'
@@ -44,7 +40,6 @@ export default function CardDetails({ card }) {
                              ${isRotated ? 'rotate-180' : ''}`} onClick={handleClick}
                              src={ CardPhotos[card.name] || ""}
                              alt={`Pick a card from the list`}/> 
-            {/* description */}
             <strong className='text-gray-800  justify-center flex mt-2 mb-2 p-[4px]
                                 border-b-[1px] border-t-[1px] border-gray-800 '>
                                 Description 
