@@ -7,7 +7,7 @@ export default function Home() {
     <div className="m-auto w-11/12 flex flex-row px-10 py-10 rounded-b-lg shadow-xl backdrop-blur-lg bg-white/50">
                     
         <div className="w-6/12 min-w-[200px] min-h-[100px] 
-                        sm:w-6/12">
+                        sm:w-6/12 sm:mt-4">
 
             <h1 className="animate-fadeLeft font-normal text-gray-800
                            sm:text-xl
@@ -39,12 +39,12 @@ export default function Home() {
         
         </div>
             
-        <div className="m-auto animate-fade min-w-[150px] min-h-[200px]
+        <div className="m-auto animate-fade  min-w-[150px] min-h-[200px]
                         xsm:hidden
-                        sm:-ml-12
+                        sm:hidden
                         md:ml-2 md:block">
                 
-            <img className="animate-float -mt-20"src="photos/tarot-vectorportal.png" alt=""></img>
+            <img className="animate-float sm:mt-10 lg:-mt-20"src="photos/tarot-vectorportal.png" alt=""></img>
             
         </div>
 

@@ -6,7 +6,7 @@ export default function Tarot() {
         const [cardsDeck, setCardObtained] = useState([]);
         return ( 
                 <>
-                <div className="container">      
+                <div className="px-2">      
                 <PlayingField setCardObtained={setCardObtained} cardsDeck={cardsDeck} />
                  
                 </div>
