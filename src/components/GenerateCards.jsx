@@ -62,7 +62,7 @@ export default function GenerateCards({ setCardObtained, setFinalState, setRevea
 
   return (
         <>
-<div className="container w-full mb-2 flex flex-row gap-3">
+<div className=" w-full mb-2 flex flex-row gap-2 justify-between">
     <button value={query} 
             onClick={(e)=> {
               setButtonPressed(true);
@@ -71,12 +71,14 @@ export default function GenerateCards({ setCardObtained, setFinalState, setRevea
               }
             } 
             className="shadow-md rounded-lg px-2 py-2 transition ease-in-out delay-100 duration-200 backdrop-blur-lg 
+            sm:min-w-[100px]
             hover:-translate-y-1 hover:scale-105 hover:bg-gray-300   
             text-gray-800 bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86]
             "> Get reading 
     </button>
     <button onClick={resetCards}
              className="shadow-md rounded-lg px-2 py-2 transition ease-in-out delay-100 duration-200 backdrop-blur-lg 
+             sm:min-w-[250px]
             hover:-translate-y-1 hover:scale-105 hover:bg-gray-300   
             text-gray-800 bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86]
             ">

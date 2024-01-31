@@ -51,7 +51,7 @@ export default function Search( { setCardSearched }) {
             </button>
     {isOpen && (
         <div className="absolute bottom-[60px] right-[260px] flex flex-row item-start animate-fade duration-100 shadow-md rounded-lg backdrop-blur-lg  p-2 w-full
-                        sm:right-[250px] sm:bottom-[45px] sm:shadow-none
+                        sm:right-[200px] sm:bottom-[45px] sm:shadow-none
                         border-l-2 border-t-2 border-r-2 border-violet-500
                         bg-gradient-to-br from-[#ffffffa8] to-[#ffffff86]  "> 
                        

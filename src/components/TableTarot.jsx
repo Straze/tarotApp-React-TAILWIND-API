@@ -34,7 +34,7 @@ export default function TableTarot({cardsDeck, finalState, revealedCards}) {
 
     return (
        
-  <div className='container mb-10'>
+  <div className=' mb-10'>
     {cardsDeck.map((card, index) => (
         <div key={card.name}>
           <ul className=' '>

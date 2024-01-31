@@ -11,9 +11,9 @@ export default function CardDetails({ card }) {
 
     return (
 
-<div className='container mb-10 flex flex-row justify-center items-center '>
+<div className='mb-10 flex flex-row justify-center items-center '>
             
-    <ul className='w-full flex flex-col container p-4 rounded-lg
+    <ul className='w-full flex flex-col p-2 rounded-lg
                    text-balance transition-all duration-300 ease-in-out  '>    
         <li className='mt-4 border-2 border-violet-500 rounded-lg shadow-lg p-2'>
             <strong className='justify-center flex text-blue-800'>{card.name}  </strong>  
